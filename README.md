@@ -2,7 +2,7 @@
 
 Take Home Exercise 2 for Frontend React Role.
 
-## Task
+## Task 
 
 Your task is to write a React application that can display the live data from the given WebSocket server.
 
@@ -53,23 +53,25 @@ You're encouraged to make use of comments to indicate thought process and explan
 
 ## Setup
 
-1. Fork the repository on GitHub in a public repository.
+1. Fork the repository on GitHub in a public repository. ->done
 
-2. Clone the forked repository.
+2. Clone the forked repository. ->done
 
-3. Build and run the server with the following code:
+3. Build and run the server with the following code: ->done and you can actually initialize whole server + client with "npm run start"
 
 ```sh
 # You will need to have Docker installed.
 npm run build:server
 npm run run:server
+
+#Added this to initialize whole project
+npm run start
 ```
 
 4. Attempt the challenge.
 
-5. (Optional bonus) Deploy the working project on a cloud platform.
-
-6. Send the repository link to us once you're done.
+5. (Optional bonus) Deploy the working project on a cloud platform. 
+6. Send the repository link to us once you're done. 
 
 ## Challenge
 
@@ -79,6 +81,8 @@ You are free to attempt the take-home in any of the following difficulties you w
 2. [Medium] Implement without using a package, but with references. Quote the references on your
    implementations in your comments (i.e., Open Source repos / Stack Overflow links).
 3. [Hard] Implement without using any package & reference.
+
+#I prolly went medium(?) idk, was annoying not to be able to use shadcn so I didnt maxxed on frontend looks; letting you guys judge tho. Not bad for a first time go + vite project me thinks :D
 
 The judgement of your skill level will be different based on whichever difficulty you've chosen.
 

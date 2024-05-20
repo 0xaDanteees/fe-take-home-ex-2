@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
+	"net/http"
 	"strconv"
 	"time"
 
@@ -78,7 +79,15 @@ var currencies = []Currency{
 		IntervalString: 1111,
 	},
 }
-var upgrader = websocket.Upgrader{}
+var upgrader = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		//We gonna allow all origins for demo purposes
+		//This kinda cors origins problem in django 
+		//I supposed to add the reference so: https://chromium.googlesource.com/external/github.com/gorilla/websocket/+/a91eba7f97777409bc2c443f5534d41dd20c5720/server.go
+		
+		return true
+	},
+}
 
 func ws(c echo.Context) error {
 	fmt.Println("New socket")
@@ -150,6 +159,12 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+
+	// Root so I can test if server actually runs lmao
+    e.GET("/", func(c echo.Context) error {
+        return c.String(http.StatusOK, "WebSocket initiated. now go /ws")
+    })
+
 	e.GET("/ws", ws)
 	e.Logger.Fatal(e.Start(":5050"))
 }
